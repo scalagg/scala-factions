@@ -1,8 +1,7 @@
-main: ${project.groupId}.${project.name}
-name: ${project.name}
-version: ${project.version}
-website: ${project.url}
-description: ${project.description}
+main: com.massivecraft.factions.Factions
+name: Factions
+version: 2.14.0 # apparently there is a check for this to be exact?
+description: Factions core
 authors: [Cayorion, Madus, Ulumulu1510, MarkehMe, Brettflan]
 depend: [MassiveCore]
 softdepend: [PermissionsEx, Permissions, Essentials, EssentialsChat, HeroChat, iChat, LocalAreaChat, LWC, nChat, ChatManager, AuthMe, Vault, Spout, WorldEdit, WorldGuard, AuthDB, CaptureThePoints, CombatTag]
