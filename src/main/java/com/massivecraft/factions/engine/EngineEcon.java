@@ -1,7 +1,7 @@
 package com.massivecraft.factions.engine;
 
 import com.massivecraft.factions.Factions;
-import com.massivecraft.factions.command.CmdFactions;
+import com.massivecraft.factions.command.faction.CmdFactions;
 import com.massivecraft.factions.entity.Faction;
 import com.massivecraft.factions.entity.MConf;
 import com.massivecraft.factions.entity.MPlayer;

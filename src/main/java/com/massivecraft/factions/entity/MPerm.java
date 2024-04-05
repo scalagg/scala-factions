@@ -4,7 +4,7 @@ import com.massivecraft.factions.AccessStatus;
 import com.massivecraft.factions.Perm;
 import com.massivecraft.factions.Rel;
 import com.massivecraft.factions.TerritoryAccess;
-import com.massivecraft.factions.command.CmdFactions;
+import com.massivecraft.factions.command.faction.CmdFactions;
 import com.massivecraft.factions.event.EventFactionsCreatePerms;
 import com.massivecraft.massivecore.Named;
 import com.massivecraft.massivecore.Prioritized;

@@ -16,6 +16,7 @@ import com.massivecraft.factions.entity.MFlagColl;
 import com.massivecraft.factions.entity.MPermColl;
 import com.massivecraft.factions.entity.MPlayerColl;
 import com.massivecraft.factions.event.EventFactionsChunkChangeType;
+import com.massivecraft.factions.extensions.saber.SaberCore;
 import com.massivecraft.factions.mixin.PowerMixin;
 import com.massivecraft.massivecore.MassivePlugin;
 import com.massivecraft.massivecore.collections.MassiveList;
@@ -23,7 +24,9 @@ import com.massivecraft.massivecore.command.type.RegistryType;
 import com.massivecraft.massivecore.store.migrator.MigratorUtil;
 import com.massivecraft.massivecore.util.MUtil;
 import com.massivecraft.massivecore.xlib.gson.GsonBuilder;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.PluginCommand;
 
 import java.util.List;
 
@@ -50,6 +53,8 @@ public class Factions extends MassivePlugin
 	private static Factions i;
 	public static Factions get() { return i; }
 	public Factions() { Factions.i = this; }
+
+	public static SaberCore saberCore;
 	
 	// -------------------------------------------- //
 	// FIELDS
@@ -66,6 +71,10 @@ public class Factions extends MassivePlugin
 	@Override
 	public void onEnableInner()
 	{
+		// Setup configuration that was never here apparently
+		saveDefaultConfig();
+		getConfig().options().copyDefaults(true);
+
 		// Register types
 		RegistryType.register(Rel.class, TypeRel.get());
 		RegistryType.register(EventFactionsChunkChangeType.class, TypeFactionChunkChangeType.get());
@@ -80,6 +89,9 @@ public class Factions extends MassivePlugin
 		this.activateAuto();
 		this.activate(this.getClassesActive("chat", ChatActive.class));
 
+		// Register all sub-modules and/or extensions
+		saberCore = new SaberCore();
+		saberCore.onEnable();
 	}
 
 	@Override

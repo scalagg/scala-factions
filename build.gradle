@@ -44,7 +44,14 @@ shadowJar {
 
     exclude "META-INF/"
 
-    archiveFileName = "scala-factions-plugin-${project.name}.jar"
+    archiveFileName = "scala-factions-plugin.jar"
+}
+
+compileJava {
+    options.compilerArgs += ["-parameters"]
+
+    options.fork = true
+    options.encoding = "UTF-8"
 }
 
 publishing {
