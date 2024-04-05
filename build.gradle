@@ -1,0 +1,73 @@
+plugins {
+    id "java"
+    id "maven-publish"
+    id "com.jfrog.artifactory" version "4.28.2"
+    id "com.github.johnrengelman.shadow" version "7.1.2"
+}
+
+group "gg.scala.factions"
+version "1.0.0"
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+
+    maven {
+        url "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
+    }
+
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    maven { url "https://oss.sonatype.org/content/repositories/central" }
+    maven { url "https://repo.glaremasters.me/repository/concuncan/" }
+
+    maven {
+        name "Scala"
+        url "${property("artifactory_contextUrl")}/gradle-release-local"
+
+        credentials {
+            username property("artifactory_user")
+            password property("artifactory_password")
+        }
+    }
+}
+
+
+dependencies {
+    compileOnly "gg.scala.spigot:server:1.1.0"
+    compileOnly "gg.scala.cloudsync:spigot:1.0.1"
+    compileOnly "gg.scala.commons:bukkit:3.4.3"
+    compileOnly fileTree("lib")
+}
+
+shadowJar {
+    archiveClassifier.set("")
+
+    exclude "META-INF/"
+
+    archiveFileName = "scala-factions-plugin-${project.name}.jar"
+}
+
+publishing {
+    publications {
+        shadow(MavenPublication) { publication ->
+            project.shadow.component(publication)
+        }
+    }
+
+    repositories {
+        maven {
+            name "scala"
+            url "${property("artifactory_contextUrl")}/gradle-release"
+
+            credentials {
+                username property("artifactory_user")
+                password property("artifactory_password")
+            }
+        }
+    }
+}
+
+tasks.build.dependsOn(
+        shadowJar,
+        publishShadowPublicationToScalaRepository
+)
