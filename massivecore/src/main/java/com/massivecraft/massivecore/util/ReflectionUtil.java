@@ -28,22 +28,7 @@ public class ReflectionUtil
 	// -------------------------------------------- //
 	// CONSTANTS
 	// -------------------------------------------- //
-	
-	private static Field FIELD_DOT_MODIFIERS;
-	
-	static
-	{
-		try
-		{
-			FIELD_DOT_MODIFIERS = Field.class.getDeclaredField("modifiers");
-			FIELD_DOT_MODIFIERS.setAccessible(true);
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
-	
+
 	private static final Class<?>[] EMPTY_ARRAY_OF_CLASS = {};
 	private static final Object[] EMPTY_ARRAY_OF_OBJECT = {};
 	
@@ -57,10 +42,6 @@ public class ReflectionUtil
 		{
 			// Mark as accessible using reflection.
 			field.setAccessible(true);
-			
-			// Remove the final modifier from the field.
-			// http://stackoverflow.com/questions/2474017/using-reflection-to-change-static-final-file-separatorchar-for-unit-testing
-			FIELD_DOT_MODIFIERS.setInt(field, field.getModifiers() & ~Modifier.FINAL);
 		}
 		catch (Exception e)
 		{

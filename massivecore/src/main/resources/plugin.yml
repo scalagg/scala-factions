@@ -1,8 +1,6 @@
-main: ${project.groupId}.${project.name}
-name: ${project.name}
-version: ${project.version}
-website: ${project.url}
-description: ${project.description}
+main: com.massivecraft.massivecore.MassiveCore
+name: MassiveCore
+version: 1.0
 authors: [Cayorion]
 load: startup
 permissions:

@@ -44,7 +44,6 @@ subprojects {
         compileOnly "gg.scala.spigot:server:1.1.0"
         compileOnly "gg.scala.cloudsync:spigot:1.0.1"
         compileOnly "gg.scala.commons:bukkit:3.4.3"
-        compileOnly fileTree("lib")
     }
 
     compileJava {

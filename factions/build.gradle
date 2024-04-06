@@ -5,3 +5,7 @@ shadowJar {
 
     archiveFileName = "scala-factions-plugin.jar"
 }
+
+dependencies {
+    compileOnly fileTree("lib")
+}

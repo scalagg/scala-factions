@@ -1,3 +1,9 @@
+
+dependencies {
+    implementation fileTree(dir: "lib", includes: ['MassiveCoreXlib-1.0.0.jar'])
+    compileOnly fileTree(dir: "lib", includes: ['Vault.jar'])
+}
+
 shadowJar {
     archiveClassifier.set("")
 
