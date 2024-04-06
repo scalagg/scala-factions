@@ -1,11 +1,14 @@
 #
 # Factions Start
 #
-
-
-
-
-
+scoreboard:
+  title: "&6&lFACTIONS &7[Map One]"
+  lines:
+    - " "
+    - "&fFaction: &6{faction}"
+    - "&fBalance: &a${balance}"
+    - " "
+    - "&7scala.gg"
 #
 # Saber Core Start
 #

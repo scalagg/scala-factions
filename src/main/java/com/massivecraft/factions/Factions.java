@@ -18,12 +18,14 @@ import com.massivecraft.factions.entity.MPlayerColl;
 import com.massivecraft.factions.event.EventFactionsChunkChangeType;
 import com.massivecraft.factions.extensions.saber.SaberCore;
 import com.massivecraft.factions.mixin.PowerMixin;
+import com.massivecraft.factions.views.FactionsScoreboardView;
 import com.massivecraft.massivecore.MassivePlugin;
 import com.massivecraft.massivecore.collections.MassiveList;
 import com.massivecraft.massivecore.command.type.RegistryType;
 import com.massivecraft.massivecore.store.migrator.MigratorUtil;
 import com.massivecraft.massivecore.util.MUtil;
 import com.massivecraft.massivecore.xlib.gson.GsonBuilder;
+import net.evilblock.cubed.scoreboard.ScoreboardHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.PluginCommand;
@@ -88,6 +90,9 @@ public class Factions extends MassivePlugin
 		// Activate
 		this.activateAuto();
 		this.activate(this.getClassesActive("chat", ChatActive.class));
+
+		// Scoreboard initialization
+		ScoreboardHandler.configure(new FactionsScoreboardView());
 
 		// Register all sub-modules and/or extensions
 		saberCore = new SaberCore();
