@@ -1,2 +1,4 @@
 rootProject.name = 'scala-factions'
+include 'massivecore'
+include 'factions'
 
