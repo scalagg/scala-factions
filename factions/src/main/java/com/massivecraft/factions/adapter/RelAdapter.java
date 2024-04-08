@@ -1,7 +1,7 @@
 package com.massivecraft.factions.adapter;
 
 import com.massivecraft.factions.Rel;
-import com.massivecraft.factions.command.type.TypeRel;
+import com.massivecraft.factions.cmd.type.TypeRel;
 import com.massivecraft.massivecore.MassiveException;
 import com.massivecraft.massivecore.xlib.gson.JsonDeserializationContext;
 import com.massivecraft.massivecore.xlib.gson.JsonDeserializer;

@@ -5,8 +5,8 @@ import com.massivecraft.factions.adapter.BoardMapAdapter;
 import com.massivecraft.factions.adapter.RelAdapter;
 import com.massivecraft.factions.adapter.TerritoryAccessAdapter;
 import com.massivecraft.factions.chat.ChatActive;
-import com.massivecraft.factions.command.type.TypeFactionChunkChangeType;
-import com.massivecraft.factions.command.type.TypeRel;
+import com.massivecraft.factions.cmd.type.TypeFactionChunkChangeType;
+import com.massivecraft.factions.cmd.type.TypeRel;
 import com.massivecraft.factions.engine.EngineEcon;
 import com.massivecraft.factions.entity.Board;
 import com.massivecraft.factions.entity.BoardColl;
@@ -18,17 +18,13 @@ import com.massivecraft.factions.entity.MPlayerColl;
 import com.massivecraft.factions.event.EventFactionsChunkChangeType;
 import com.massivecraft.factions.extensions.saber.SaberCore;
 import com.massivecraft.factions.mixin.PowerMixin;
-import com.massivecraft.factions.views.FactionsScoreboardView;
 import com.massivecraft.massivecore.MassivePlugin;
 import com.massivecraft.massivecore.collections.MassiveList;
 import com.massivecraft.massivecore.command.type.RegistryType;
 import com.massivecraft.massivecore.store.migrator.MigratorUtil;
 import com.massivecraft.massivecore.util.MUtil;
 import com.massivecraft.massivecore.xlib.gson.GsonBuilder;
-import net.evilblock.cubed.scoreboard.ScoreboardHandler;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.command.PluginCommand;
 
 import java.util.List;
 
@@ -92,7 +88,7 @@ public class Factions extends MassivePlugin
 		this.activate(this.getClassesActive("chat", ChatActive.class));
 
 		// Scoreboard initialization
-		ScoreboardHandler.configure(new FactionsScoreboardView());
+		// ScoreboardHandler.configure(new FactionsScoreboardView());
 
 		// Register all sub-modules and/or extensions
 		saberCore = new SaberCore();

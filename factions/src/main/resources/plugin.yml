@@ -1,6 +1,6 @@
 main: com.massivecraft.factions.Factions
 name: Factions
-version: 2.14.0 # apparently there is a check for this to be exact?
+version: 1.0 # apparently there is a check for this to be exact?
 description: Factions core
 authors: [Cayorion, Madus, Ulumulu1510, MarkehMe, Brettflan]
 depend: [MassiveCore]

@@ -66,7 +66,7 @@ public final class SaberCore {
         registerBooleans();
         persist = new Persist();
         Collections.singletonList(new MessageFile()).forEach(CustomFile::init);
-        registerCommands();
+        //registerCommands();
         SaberUtils.register();
         List<PluginHook<?>> hooks = new ArrayList<>();
         hooks.add(new FactionHook());
@@ -103,7 +103,8 @@ public final class SaberCore {
         });
     }
 
-    private void registerCommands() {
+    // TODO: convert
+/*    private void registerCommands() {
         getFactions().getCommand("saberwand").setExecutor(new CmdGiveWand());
         getFactions().getCommand("lff").setExecutor(new CmdLFF());
         getFactions().getCommand("jellylegs").setExecutor(new CmdJellyLegs());
@@ -114,7 +115,7 @@ public final class SaberCore {
         getFactions().getCommand("playerinfo").setExecutor(new CmdPlayerInfo());
         getFactions().getCommand("giveall").setExecutor(new CmdGiveAll());
         getFactions().getCommand("stackpots").setExecutor(new CmdStackPotions());
-    }
+    }*/
 
 
     private void registerBooleans() {
@@ -127,7 +128,7 @@ public final class SaberCore {
 
         if(getConfig().getBoolean("Shockwave.Enabled")){
             getServer().getPluginManager().registerEvents(new ShockwaveListener(), getFactions());
-            getFactions().getCommand("shockwave").setExecutor(new CmdShockwave());
+            //getFactions().getCommand("shockwave").setExecutor(new CmdShockwave());
         }
 
         if(getConfig().getBoolean("useOreTracker")){
@@ -147,11 +148,11 @@ public final class SaberCore {
         }
         if(getConfig().getBoolean("HarvesterHoe.Enabled")){
             getServer().getPluginManager().registerEvents(new HarvesterHoeListener(), getFactions());
-            getFactions().getCommand("harvesterhoe").setExecutor(new CmdHarvesterHoe());
+            //getFactions().getCommand("harvesterhoe").setExecutor(new CmdHarvesterHoe());
         }
         if(getConfig().getBoolean("Chunkbuster.Enabled")){
             getServer().getPluginManager().registerEvents(new ChunkbusterListener(), getFactions());
-            getFactions().getCommand("chunkbuster").setExecutor(new CmdChunkbuster());
+            //getFactions().getCommand("chunkbuster").setExecutor(new CmdChunkbuster());
         }
         if(getConfig().getBoolean("cancelDragonEggTeleport")){
             getServer().getPluginManager().registerEvents(new DragonEggAntiTP(), getFactions());

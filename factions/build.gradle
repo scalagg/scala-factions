@@ -8,4 +8,5 @@ shadowJar {
 
 dependencies {
     compileOnly fileTree("lib")
+    compileOnly project(":massivecore")
 }
