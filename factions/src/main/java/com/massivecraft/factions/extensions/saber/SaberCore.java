@@ -15,6 +15,7 @@ import com.massivecraft.factions.extensions.saber.hooks.impl.WorldGuardHook;
 import com.massivecraft.factions.extensions.saber.listeners.InstaBreakSponge;
 import com.massivecraft.factions.extensions.saber.tasks.RoofCannonTask;
 import com.massivecraft.factions.extensions.saber.utils.SaberUtils;
+import com.massivecraft.massivecore.engine.EngineMassiveCoreCommandRegistration;
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -66,7 +67,7 @@ public final class SaberCore {
         registerBooleans();
         persist = new Persist();
         Collections.singletonList(new MessageFile()).forEach(CustomFile::init);
-        //registerCommands();
+        registerCommands();
         SaberUtils.register();
         List<PluginHook<?>> hooks = new ArrayList<>();
         hooks.add(new FactionHook());
@@ -74,6 +75,7 @@ public final class SaberCore {
             hooks.add(new WorldGuardHook());
         }
         new HookManager(hooks);
+
     }
 
     public void onDisable() {
@@ -103,19 +105,13 @@ public final class SaberCore {
         });
     }
 
-    // TODO: convert
-/*    private void registerCommands() {
-        getFactions().getCommand("saberwand").setExecutor(new CmdGiveWand());
-        getFactions().getCommand("lff").setExecutor(new CmdLFF());
-        getFactions().getCommand("jellylegs").setExecutor(new CmdJellyLegs());
-        getFactions().getCommand("nv").setExecutor(new CmdNightVision());
-        getFactions().getCommand("recycle").setExecutor(new CmdRecycle());
-        getFactions().getCommand("sabercore").setExecutor(new CmdReload());
-        getFactions().getCommand("setslots").setExecutor(new CmdSetSlots(this));
-        getFactions().getCommand("playerinfo").setExecutor(new CmdPlayerInfo());
-        getFactions().getCommand("giveall").setExecutor(new CmdGiveAll());
-        getFactions().getCommand("stackpots").setExecutor(new CmdStackPotions());
-    }*/
+    private void registerCommands() {
+        getFactions().activate(
+                CmdAnvil.class
+        );
+
+        EngineMassiveCoreCommandRegistration.updateRegistrations();
+    }
 
 
     private void registerBooleans() {
