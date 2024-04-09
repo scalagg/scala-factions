@@ -194,28 +194,6 @@ SpawnerSponge: #Spawners will act as sponges and soak lava and water up
 
 ############################################################
 # +------------------------------------------------------+ #
-# |                    ChatFilter                        | #
-# +------------------------------------------------------+ #
-############################################################
-ChatFilter:
-  Format: '&b&l[Filtered] &e{player}&f: {message}'
-  Filtered-Words:
-    - nigger
-    - faggot
-    - queer
-    - slut
-    - whore
-  Whitelisted-Links:
-    - youtube.com
-    - gyazo.com
-    - discord.gg
-    - twitter.com
-    - saber.dev
-  Filtered-Phrases:
-    - Saber is Awesome!
-
-############################################################
-# +------------------------------------------------------+ #
 # |                 AntiSpawnerMine                      | #
 # +------------------------------------------------------+ #
 ############################################################
