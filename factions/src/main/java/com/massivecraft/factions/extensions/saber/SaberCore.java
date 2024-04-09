@@ -107,7 +107,8 @@ public final class SaberCore {
 
     private void registerCommands() {
         getFactions().activate(
-                CmdAnvil.class
+                CmdAnvil.class,
+                CmdChunkbuster.class
         );
 
         EngineMassiveCoreCommandRegistration.updateRegistrations();
